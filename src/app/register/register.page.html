@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="registerForm">
+          <ion-item>
+            <ion-label><ion-icon name="person"></ion-icon></ion-label>
+            <ion-input type="text" formControlName="firstName" placeholder="First name"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+              <ion-label><ion-icon name="person"></ion-icon></ion-label>
+              <ion-input type="text" formControlName="lastName" placeholder="Last name"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+              <ion-input type="text" formControlName="email" placeholder="Email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><ion-icon name="ios-key"></ion-icon></ion-label>
+            <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label><ion-icon name="key"></ion-icon></ion-label>
+              <ion-input type="password" formControlName="confirmPassword" placeholder="Confirm password"></ion-input>
+          </ion-item>
+        
+          <div text-center margin-top>
+        
+            <ion-button color="primary" [disabled]="!registerForm.valid"  (click)="registerAction()">Register</ion-button>
+        
+            <ion-button margin-right color="secondary" (click)="goToLoginPage()">
+              Login
+            </ion-button>
+        
+          </div>
+    </form>
+</ion-content>

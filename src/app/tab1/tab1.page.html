@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Shops
+
+      <ion-button size="small"  float-right (click)="goToAdd();">
+        <ion-icon slot="start" name="add"></ion-icon>
+        Add Shop
+      </ion-button>
+
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngIf="shopsList.length == 0" text-center> No record available</ion-item>
+  <div *ngFor="let item of shopsList">
+      <ion-card class="welcome-card">
+          <ion-card-content>
+              <ion-grid>
+    
+                <ion-row>
+                  <ion-col size="12">
+                      <b>{{item.name}}</b>
+                  </ion-col>
+                  <ion-col size="4">
+                    <img [src]="item.image">
+                  </ion-col>
+    
+                  <ion-col size="8">
+                      <p><strong>Address</strong></p>
+                      {{item.address}}
+                  </ion-col>
+                </ion-row>
+    
+                <ion-row>
+                  <ion-col text-right>
+                        <ion-button shape="round" color="secondary" size="small" (click)="EditRecord(item.id)">
+                          <ion-icon size="small" slot="icon-only" name="create"></ion-icon>
+                 
+                        </ion-button>
+                        <ion-button shape="round" color="danger" size="small" (click)="RemoveRecord(item.id)">
+                          <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+                 
+                        </ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>  
+          </ion-card-content>
+        </ion-card>
+  </div>
+    
+</ion-content>
